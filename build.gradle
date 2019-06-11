@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+repositories {
+    mavenLocal()
+    
+    //maven {
+    //    url 'http://nexus.dev.oxaion.local/repository/maven-all/'
+    //}
+    
+    maven {
+       url 'https://artifact.aspose.com/repo/'
+    }
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+dependencies {
+    compile group: 'demo', name: '9668-base', version: '1.0-SNAPSHOT', changing: true
+}
